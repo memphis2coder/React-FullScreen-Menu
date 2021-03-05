@@ -1,0 +1,36 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: lightblue;
+    display: none;
+    z-index: 5;
+}
+
+nav {
+    display: block;
+}
+
+ul {
+    width: 100%;
+    text-align: center;
+}
+
+li {
+    margin: 20px 0;
+}
+
+a {
+    font-size: 9vw;
+    color: whitesmoke;
+    transition: .3s ease-in-out;
+}
+a:hover {
+    color: bisque;
+}
