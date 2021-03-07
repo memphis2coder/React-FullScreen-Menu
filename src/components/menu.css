@@ -1,4 +1,4 @@
-.menu {
+.main-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,8 +9,8 @@
     height: 100%;
     width: 100%;
     background-color: lightblue;
-    display: none;
     z-index: 5;
+    display: none;
 }
 
 nav {

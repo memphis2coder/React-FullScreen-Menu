@@ -8,27 +8,57 @@ import './header.css';
 // import Team from '../pages/team';
 
 function Navbar() {
+    // disabled state
+    const [disabled, setDisabled] = useState(false);
     // if the menu is open or closed
+
     const [state, setState] = useState({
+        initial: null,
         clicked: false, // keep track if menu has been clicked
         menuName: "Menu" // represents our menu text
     });
 
     // Toggle Menu
     const handleMenu = () => { 
-        if (state.clicked === false) {
+        disabledMenu();
+        if (state.initial === false) {
             setState({
-                clicked: !state.clicked,
-                menuName: "Menu"
-            })
-            console.log("open")
-        } else if (state.clicked === true) {
+              initial: null,
+              clicked: true,
+              menuName: "Close"
+            });
+          } else if (state.clicked === true) {
             setState({
-                clicked: !state.clicked,
-                menuName: "Close"
-            })
-            console.log("close")
-        }
+              clicked: !state.clicked,
+              menuName: "Menu"
+            });
+          } else if (state.clicked === false) {
+            setState({
+              clicked: !state.clicked,
+              menuName: "Close"
+            });
+          }
+        // if (state.clicked === false) {
+        //     setState({
+        //         clicked: !state.clicked,
+        //         menuName: "Menu"
+        //     })
+        //     console.log("open")
+        // } else if (state.clicked === true) {
+        //     setState({
+        //         clicked: !state.clicked,
+        //         menuName: "Close"
+        //     })
+        //     console.log("close")
+        // }
+    };
+
+    // prevent spam of menu button
+    const disabledMenu = () => {
+        setDisabled(!disabled);
+        setTimeout(() => {
+            setDisabled(false)
+        }, 1200)
     };
 
 
@@ -40,12 +70,11 @@ function Navbar() {
                     <Link to="/">Airpods.</Link>
                 </div>
                 <div>
-                    <button onClick={handleMenu}>{state.menuName}</button>
+                    <button disabled={disabled} onClick={handleMenu}>{state.menuName}</button>
                 </div>
             </div>
-            <Menu />
+            <Menu state={state}/>
         </header>
-        
     )
 };
 
