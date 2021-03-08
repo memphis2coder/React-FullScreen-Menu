@@ -1,21 +1,25 @@
 import React, {useEffect, useRef} from 'react'
 import {Link} from 'react-router-dom';
+import { gsap } from 'gsap';
 import "../globalStyles.css";
 import './menu.css';
 
 const Menu = ({state}) => {
+    // reference to the DOM node
     let menu = useRef(null);
-
+    // toggle menu open and close
     useEffect(() => {
-         if (state.clicked === false) { 
+         if (state.clicked === false) { // if its false menu is closed
             menu.style.display = 'none';
             console.log('close menu');
          } else if (state.clicked === true || (state.clicked === true && state.initial === null)) {
-            menu.style.display = 'flex';
+            menu.style.display = 'flex'; // if its true open menu
             console.log("open menu");
          }
     },[state]);
- 
+    // reference to the animation
+    let myTween = useRef(null)
+    
     
 
     return (
