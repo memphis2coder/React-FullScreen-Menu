@@ -1,1 +1,1 @@
-# React-FullScreen-Menu-Boilerplate
+# React-FullScreen-Menu-Template
